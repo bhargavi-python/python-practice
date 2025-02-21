@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Checking the statemnts
-        run: echo "Job 1 is running"
+        run: echo "Job 1 is running":
           
 
       - name: Run tests (Job 1)
