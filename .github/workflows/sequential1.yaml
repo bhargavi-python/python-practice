@@ -1,4 +1,4 @@
-name: Sequential Example
+name: Sequential Example 
 
 on:
   push:
@@ -6,13 +6,16 @@ on:
       - main
 
 jobs:
-  build_and_deploy:
+  checkout:
     runs-on: ubuntu-latest
-    needs: checkout
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    needs: checkout  # This job depends on the 'checkout' job to finish successfully
+    steps:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
@@ -26,25 +29,6 @@ jobs:
         run: |
           pytest
 
-      # If you're using npm for frontend, make sure to move to the right directory
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '14'  # or your desired Node version
-
-      - name: Install npm dependencies
+      - name: Statement
         run: |
-          cd frontend  
-          npm install
-
-      - name: Run npm tests
-        run: |
-          cd frontend  # Navigate to the correct directory again
-          npm test
-
-      - name: Make deploy script executable
-        run: chmod +x ./deploy.sh
-
-      - name: Deploy to production
-        run: |
-          ./deploy.sh
+          echo "output of yaml file"
