@@ -29,4 +29,4 @@ jobs:
 
       - name: Statement
         run: |
-          echo "output of yaml file"
+          echo "output of yaml file".
