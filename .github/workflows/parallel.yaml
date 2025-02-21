@@ -13,13 +13,11 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Checking the statemnts
-        run: |
-          echo "Job 1 is installing Python dependencies"
+        run: echo "Job 1 is running"
           
 
       - name: Run tests (Job 1)
-        run: |
-          echo "Running tests for Job 1"
+        run: echo "Running the or Job 1"
           
 
   job2:
@@ -29,8 +27,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Run linting (Job 2)
-        run: |
-          echo "Running linting for Job 2"
+        run: echo "Running the  Job 2"
           
 
   job3:
@@ -40,6 +37,5 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Run (Job 3)
-        run: |
-          echo "Running linting for Job 3"
+        run: echo "Running the Job 3"
           
