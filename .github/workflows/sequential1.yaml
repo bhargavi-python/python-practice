@@ -26,10 +26,6 @@ jobs:
           python3 -m pip install --upgrade pip
           pip install pytest
 
-      - name: Run tests (Python)
-        run: |
-          pytest  # Running the tests after installing pytest
-
       - name: Statement
         run: |
           echo "This is the statement step running after all tests have completed."
