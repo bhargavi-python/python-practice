@@ -14,7 +14,7 @@ jobs:
 
   build_and_deploy:
     runs-on: ubuntu-latest
-    needs: checkout  # This job depends on the 'checkout' job to finish successfully
+    needs: checkout  
     steps:
       - name: Set up Python
         uses: actions/setup-python@v2
@@ -23,6 +23,8 @@ jobs:
 
       - name: Run tests (Python)
         run: |
+          python3 -m pip install --upgrade pip
+          pip install pytest 
           pytest
 
       - name: Statement
