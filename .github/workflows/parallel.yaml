@@ -27,7 +27,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Run linting (Job 2)
-        run: echo "Running the  Job 2"
+        run: echo "Running the  Job 2":
           
 
   job3:
