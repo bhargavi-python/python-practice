@@ -41,5 +41,5 @@ jobs:
 
       - name: Run linting (Job 3)
         run: |
-          echo "Running linting for Job 3"
+          echo "Running linting for Job 31"
           flake8 .
