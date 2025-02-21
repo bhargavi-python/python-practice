@@ -1,0 +1,45 @@
+name: Parallel Example
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Checking the statemnts
+        run: |
+          echo "Job 1 is installing Python dependencies"
+          
+
+      - name: Run tests (Job 1)
+        run: |
+          echo "Running tests for Job 1"
+          pytest
+
+  job2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run linting (Job 2)
+        run: |
+          echo "Running linting for Job 2"
+          
+
+  job3:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run linting (Job 3)
+        run: |
+          echo "Running linting for Job 3"
+          flake8 .
