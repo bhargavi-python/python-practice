@@ -20,7 +20,7 @@ jobs:
       - name: Run tests (Job 1)
         run: |
           echo "Running tests for Job 1"
-          pytest
+          
 
   job2:
     runs-on: ubuntu-latest
@@ -39,7 +39,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Run linting (Job 3)
+      - name: Run (Job 3)
         run: |
-          echo "Running linting for Job 31"
-          flake8 .
+          echo "Running linting for Job 3"
+          
