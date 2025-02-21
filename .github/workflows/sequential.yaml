@@ -1,10 +1,7 @@
 name: Sequential Example
 
 on:
-  pull_request:
-    types: closed
-    branches:
-      - master
+ workflow_dispatch:
 
 jobs:
   build_and_deploy:
