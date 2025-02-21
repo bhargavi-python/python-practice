@@ -1,9 +1,10 @@
 name: Sequential Example
 
 on:
-  push:
+  pull_request:
+    types: closed
     branches:
-      - main
+      - master
 
 jobs:
   build_and_deploy:
