@@ -33,7 +33,7 @@ jobs:
 
       - name: Install npm dependencies
         run: |
-          cd frontend  # Navigate to the correct directory where package.json is
+          cd frontend  
           npm install
 
       - name: Run npm tests
