@@ -1,20 +1,29 @@
-name: Node.js CI
+name: Create Directory and Download Artifacts
 
 on:
   push:
-      branches: [ "main" ]
+    branches:
+      - main
+  workflow_dispatch:
 
 jobs:
-  build:
+  create-directory-and-download-artifacts:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js
-      uses: actions/setup-node@v3
-    - run: npm ci
-    - run: npm run build --if-present
-    - uses: actions/upload-artifact@v3
+    # Step 1: Checkout the repository
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    # Step 2: Create a directory
+    - name: Create a directory
+      run: |
+        mkdir -p my_new_directory
+        echo "Directory 'my_new_directory' created."
+
+    # Step 3: Download artifacts
+    - name: Download Artifacts
+      uses: actions/download-artifact@v3
       with:
-        name: Build
-        path: dist
+        name: my-artifact  # Name of the artifact to download
+        path: ./my_new_directory  # Path to save the artifact in the created directory
