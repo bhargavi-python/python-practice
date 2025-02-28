@@ -1,33 +1,29 @@
-name: Build and Upload Artifact
+name: CI Workflow
 
-on: 
-  push:
-    branches:
-      - main
+on: [push]
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+    - name: Checkout code
+      uses: actions/checkout@v3
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '14'
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '14'
 
-      - name: Install dependencies
-        run: npm install
+    - name: Install dependencies
+      run: npm install
 
-      - name: Build project
-        run: npm run build
+    - name: Build project
+      run: npm run build
 
-      - name: Upload build artifact
-        uses: actions/upload-artifacts@v3
-        with:
-          name: build-artifact
-          path: ./build/*
-      - name: Print message to log
-        run: echo "Uploading build artifacts complete"
+    - name: Upload build artifacts
+      uses: actions/upload-artifacts@v3
+      with:
+        name: build-artifacts
+        path: ./build/*  # Adjust this to match your build output path
+
