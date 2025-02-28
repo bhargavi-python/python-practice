@@ -8,14 +8,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3  # Updated to v3
       - name: Run a script
         run: echo "This is a manually triggered workflow."
-      - name: Upload artifacts.
+      - name: Create files directory
+        run: mkdir -p files
+      - name: Upload artifacts
         uses: actions/upload-artifacts@v3
         with:
-          name: mkdir -p files
+          name: my-artifact
           path: |
-             files
-              package.json
-        
+            files/**
+            package.json
+
