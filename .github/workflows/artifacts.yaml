@@ -1,1 +1,20 @@
+name: Manual Workflow
 
+on:
+  workflow_dispatch:
+
+jobs:
+  example_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Run a script
+        run: echo "This is a manually triggered workflow."
+      - name: Upload artifacts
+        uses: actions/upload-artifacts@v3
+        with:
+          name: files
+          path: 
+             package.json
+        
