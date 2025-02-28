@@ -1,7 +1,9 @@
 name: Manual Workflow
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      workflow_dispatch:
 
 jobs:
   example_job:
