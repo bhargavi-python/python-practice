@@ -1,24 +1,31 @@
-name: Manual Workflow
-on:
+name: Build and Upload Artifact
+
+on: 
   push:
     branches:
       - main
 
 jobs:
-  example_job:
+  build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3  # Updated to v3
-      - name: Run a script
-        run: echo "This is a manually triggered workflow."
-      - name: Create files directory
-        run: mkdir -p files
-      - name: Upload artifacts
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build project
+        run: npm run build
+
+      - name: Upload build artifact
         uses: actions/upload-artifacts@v3
         with:
-          name: my-artifact
-          path: |
-            files/**
-            package.json
-
+          name: build-artifact
+          path: ./build/*
