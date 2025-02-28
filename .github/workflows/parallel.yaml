@@ -3,7 +3,7 @@ name: Parallel Example
 on:
   push:
     branches:
-      - main
+      workflow_dispatch:
 
 jobs:
   job1:
