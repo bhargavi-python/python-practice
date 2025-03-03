@@ -15,8 +15,13 @@ jobs:
       - name: Change directory to python-practice
         run: cd python-practice
 
+      - name: Create a new directory under python-practice
+        run: |
+          mkdir -p python-practice/new-directory  # Create a new directory
+
       - name: npm install, build, and test
         run: |
+          cd python-practice  # Ensure we're in the correct directory
           npm install
           npm run build --if-present
           npm test
@@ -49,4 +54,3 @@ jobs:
 
       - name: Download all workflow run artifacts
         uses: actions/download-artifact@v4
-
