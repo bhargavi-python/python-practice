@@ -12,12 +12,15 @@ jobs:
       - name: List directory contents
         run: ls -al
 
-      - name: Change directory to python-practice
-        run: cd python-practice
-
-      - name: Create a new directory under python-practice
+      - name: Create a new directory and files under python-practice
         run: |
-          mkdir -p python-practice/new-directory  # Create a new directory
+          # Create a new directory
+          mkdir -p python-practice/new-directory
+          
+          # Create some files inside the new directory
+          echo "This is a sample file 1" > python-practice/new-directory/file1.txt
+          echo "This is a sample file 2" > python-practice/new-directory/file2.txt
+          echo "This is a sample file 3" > python-practice/new-directory/file3.txt
 
       - name: npm install, build, and test
         run: |
@@ -54,3 +57,4 @@ jobs:
 
       - name: Download all workflow run artifacts
         uses: actions/download-artifact@v4
+
