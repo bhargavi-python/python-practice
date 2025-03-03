@@ -1,4 +1,4 @@
-name: Node.js CI Workflow
+name: Download-Artifacts
 
 on: [push]
 
@@ -12,43 +12,38 @@ jobs:
       - name: List directory contents
         run: ls -al
 
-     
       - name: Create a new directory and files under python-practice
         run: |
           # Create a new directory
-          mkdir -p .github/workflows/new-directory
+          mkdir -p python-practice/new-directory
           
           # Create some files inside the new directory
-          echo "This is a sample file 1" > .github/workflows/new-directory/file1.txt
-          echo "This is a sample file 2" > .github/workflows/new-directory/file2.txt
-          echo "This is a sample file 3" > .github/workflows/new-directory/file3.txt
+          echo "This is a sample file 1" > python-practice/new-directory/file1.txt
+          echo "This is a sample file 2" > python-practice/new-directory/file2.txt
+          echo "This is a sample file 3" > python-practice/new-directory/file3.txt
 
-          
+      - name: List contents of the new directory
+        run: ls -al python-practice
+
       - name: Archive production artifacts
         uses: actions/upload-artifact@v4
         with:
           name: dist-without-markdown
           path: |
-           .github/workflows/new-directory/my-file.txt
+           python-practice/new-directory/file1.txt
+           python-practicenew-directory/file2.txt
+           python-practicenew-directory/file3.txt
 
-      - name: Archive code coverage results
-        uses: actions/upload-artifact@v4
-        
-          
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
           name: my-artifact
-          path: .github/workflows/new-directory/my-file.txt  # Ensure path is correct
-          
+          path: |
+            python-practice/new-directory/file1.txt
+            python-practice/new-directory/file2.txt
+            python-practice/new-directory/file3.txt
 
-      - name: Download a single artifact
+      - name: Download Artifact
         uses: actions/download-artifact@v4
         with:
           name: my-artifact  # Ensure this matches the upload name
-
-      - name: Download all workflow run artifacts
-        uses: actions/download-artifact@v4
-
-       
-
