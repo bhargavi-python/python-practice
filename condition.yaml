@@ -1,0 +1,32 @@
+name: Simple CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout code
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      # Step 2: Cache dependencies
+      - name: Cache Node modules
+        id: cache-node
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}
+      
+      # Step 3: Install dependencies if not cached
+      - name: Install Dependencies
+        run: npm install
+
+      # Step 4: Run tests only if on main branch
+      - name: Run Tests
+        if: github.ref == 'refs/heads/main'
+        run: npm test
