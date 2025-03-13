@@ -1,0 +1,21 @@
+name: Basic workflow
+ 
+on: [push]
+ 
+jobs:
+  build:
+    runs-on: ubuntu-latest
+ 
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+ 
+    - name: What is the event?
+      run: |
+        if [ ${{ github.event_name }} == 'pull_request' ]; then
+          echo "This is a pull request event"
+        elif [ ${{ github.event_name }} == 'push' ]; then
+          echo "This is a push event"
+        else
+          echo "This is an unknown event"
+        fi
