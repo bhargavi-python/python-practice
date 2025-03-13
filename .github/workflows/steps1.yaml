@@ -1,4 +1,4 @@
-name: steps in Github Actions
+name: Steps in Github Actions
 
 on:
   workflow_dispatch:
