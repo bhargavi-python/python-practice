@@ -12,6 +12,40 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
+    - name: Create a new directory and files under python-practice
+       run: 
+          # Create a new directory
+          mkdir -p python-practice/new-directory
+          
+          # Create some files inside the new directory
+          echo "This is a sample file 1" > python-practice/new-directory/file1.txt
+          echo "This is a sample file 2" > python-practice/new-directory/file2.txt
+          echo "This is a sample file 3" > python-practice/new-directory/file3.txt
+          echo "This is a sample file 4" > python-practice/new-directory/file4.txt
+
+      - name: List contents of the new directory
+        run: ls -al python-practice
+
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist-without-markdown
+          path: |
+           python-practice/new-directory/file1.txt
+           python-practice/new-directory/file2.txt
+           python-practice/new-directory/file3.txt
+           python-practice/new-directory/file4.txt 
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: my-artifact
+          path: |
+            python-practice/new-directory/file1.txt
+            python-practice/new-directory/file2.txt
+            python-practice/new-directory/file3.txt
+            python-practice/new-directory/file4.txt
+
     - name: Run a command that might fail
       run: |
         echo "Running some command..."
@@ -20,19 +54,19 @@ jobs:
     # Step 2: Success step (runs only when the previous step was successful)
     - name: Success step
       if: success()  # Runs only if the previous step was successful
-      run: echo "This ran because the previous step succeeded."
+      run: python-practice/new-directory/file1.txt
 
     # Step 3: Failure step (runs only if the previous step failed)
     - name: Failure step
       if: failure()  # Runs only if the previous step failed
-      run: echo "This ran because the previous step failed."
+      run: python-practice/new-directory/file2.txt
 
     # Step 4: Always step
     - name: Always step
       if: always()  # Runs no matter what happens in previous steps
-      run: echo "This runs regardless of the outcome of previous steps."
+      run: python-practice/new-directory/file3.txt
 
     # Step 5: Cancelled step
     - name: Cancelled Step
       if: cancelled() 
-      run: echo "This runs Cancelling the Step."
+      run: python-practice/new-directory/file4.txt
