@@ -27,7 +27,12 @@ jobs:
       if: failure()  # Runs only if the previous step failed
       run: echo "This ran because the previous step failed."
 
-    # Step 4: Always step (runs regardless of success or failure)
+    # Step 4: Always step
     - name: Always step
       if: always()  # Runs no matter what happens in previous steps
       run: echo "This runs regardless of the outcome of previous steps."
+
+    # Step 5: Cancelled step
+    - name: Cancelled Step
+      if: cancelled() 
+      run: echo "This runs Cancelling the Step."
