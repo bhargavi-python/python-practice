@@ -1,0 +1,33 @@
+name: steps in Github Actions
+
+on:
+  workflow_dispatch:
+
+jobs:
+  my-job:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Step 1: Run a task that could succeed or fail
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Run a command that might fail
+      run: |
+        echo "Running some command..."
+        exit 1 # Simulating a failure, you can replace with any command
+
+    # Step 2: Success step (runs only when the previous step was successful)
+    - name: Success step
+      if: success()  # Runs only if the previous step was successful
+      run: echo "This ran because the previous step succeeded."
+
+    # Step 3: Failure step (runs only if the previous step failed)
+    - name: Failure step
+      if: failure()  # Runs only if the previous step failed
+      run: echo "This ran because the previous step failed."
+
+    # Step 4: Always step (runs regardless of success or failure)
+    - name: Always step
+      if: always()  # Runs no matter what happens in previous steps
+      run: echo "This runs regardless of the outcome of previous steps."
