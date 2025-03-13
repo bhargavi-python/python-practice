@@ -15,7 +15,7 @@ jobs:
     - name: Run a command that might fail
       run: |
         echo "Running some command..."
-        exit 1 # Simulating a failure, you can replace with any command
+        
 
     # Step 2: Success step (runs only when the previous step was successful)
     - name: Success step
