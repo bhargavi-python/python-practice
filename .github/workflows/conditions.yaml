@@ -54,7 +54,16 @@ jobs:
         uses: actions/cache@v2
         with:
           path: python-practice/new-directory/file1.txt
-          
+      # Step 3:  
+      - name: What is the event?
+        run: |
+           if [ ${{ github.event_name }} == 'pull_request' ]; then
+             echo "This is a pull request event"
+           elif [ ${{ github.event_name }} == 'push' ]; then
+             echo "This is a push event"
+           else
+             echo "This is an unknown event"
+           fi  
       
       # Step 3: Install dependencies if not cached
       - name: Install Dependencies
