@@ -25,12 +25,10 @@ jobs:
         
 
         # Create virtual environment
-        python -m venv playwright_env
-        source playwright_env/bin/activate
+        python -m venv project_env
+        source project_env/bin/activate
         
-        # Install Playwright and other dependencies
-        pip install pytest-playwright
-        playwright install
+       
 
     - name: Run tests
       run: |
@@ -38,5 +36,7 @@ jobs:
         cd apple_project/tests
         pip install -U pytest
         pip install selenium
+        pip install pytest-playwright
+        playwright install
         pip install webdriver-manager
         pytest test_addfeatures.py  
