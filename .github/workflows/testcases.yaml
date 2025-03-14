@@ -18,7 +18,7 @@ jobs:
 
     - name: Install dependencies
       run: |
-        cd keka_portal_automation
+        cd apple_project
         python -m pip install --upgrade pip
         pip freeze > requirements.txt
 
@@ -35,8 +35,8 @@ jobs:
     - name: Run tests
       run: |
         # Make sure you are in the correct directory to run the tests
-        cd keka_portal_automation/test_cases
+        cd apple_project/tests
         pip install -U pytest
         pip install selenium
         pip install webdriver_manager
-        pytest test_Homefunctionality.py  
+        pytest test_addfeatures.py  
