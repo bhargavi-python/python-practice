@@ -37,4 +37,5 @@ jobs:
         # Make sure you are in the correct directory to run the tests
         cd keka_portal_automation/test_cases
         pip install -U pytest
+        pip install selenium
         pytest test_Homefunctionality.py  
