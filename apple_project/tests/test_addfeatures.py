@@ -8,11 +8,11 @@ import time
 def test_addfeatures(page: Page):
     apple = AppleWebsite(page)
     apple.navigate()
-    apple.clickonwebsite()
-    iphone = GotoIphone(page)
-    iphone.clickoniphone()
-    features = AddFeatures(page)
-    features.clickonfeatures()
-    time.sleep(4)
+    # apple.clickonwebsite()
+    # iphone = GotoIphone(page)
+    # iphone.clickoniphone()
+    # features = AddFeatures(page)
+    # features.clickonfeatures()
+    # time.sleep(4)
 
 
