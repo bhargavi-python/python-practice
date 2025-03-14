@@ -38,5 +38,5 @@ jobs:
         cd apple_project/tests
         pip install -U pytest
         pip install selenium
-        pip install webdriver_manager
+        pip install webdriver-manager
         pytest test_addfeatures.py  
