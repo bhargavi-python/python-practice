@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="0" skipped="0" tests="1" time="9.176" timestamp="2023-03-14T11:53:57.734151" hostname="BAN-LAP-BAVNAM"><testcase classname="tests.test_search" name="test_searchapple[chromium]" time="9.115" /></testsuite></testsuites>
