@@ -5,6 +5,7 @@ import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
  # optional, if you want to manage drivers automatically
+from webdriver_manager.chrome import ChromeDriverManager 
 
 import pytest
 from selenium import webdriver
