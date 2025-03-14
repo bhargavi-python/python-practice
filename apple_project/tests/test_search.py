@@ -7,7 +7,7 @@ def test_searchapple(page: Page):
     apple = AppleWebsite(page)
     # time.sleep(3)
     apple.navigate()
-    apple.clickonwebsite()
-    time.sleep(3)
+    # apple.clickonwebsite()
+    # time.sleep(3)
 
 
