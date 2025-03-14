@@ -24,7 +24,7 @@ def driver():
     driver_path = ChromeDriverManager().install()
 
     # Create Chrome WebDriver instance with the managed driver
-    driver = webdriver.Chrome(service=Service(driver_path), options=options)
+    # driver = webdriver.Chrome(service=Service(driver_path), options=options)
     
     yield driver  # Yield the driver to the test
     
