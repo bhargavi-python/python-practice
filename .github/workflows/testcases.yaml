@@ -38,4 +38,5 @@ jobs:
         cd keka_portal_automation/test_cases
         pip install -U pytest
         pip install selenium
+        pip install webdriver-manager
         pytest test_Homefunctionality.py  
