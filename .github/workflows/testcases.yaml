@@ -1,5 +1,4 @@
-
-name: Steps
+name: Testcases run
 
 on:
  workflow_dispatch:
@@ -9,7 +8,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # Step 1: Checkout code
     - name: Checkout code
       uses: actions/checkout@v3
 
