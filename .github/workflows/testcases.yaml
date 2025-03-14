@@ -27,6 +27,7 @@ jobs:
         source playwright_env/bin/activate
         
         # Install Playwright and other dependencies
+        pip install -U pytest
         pip install pytest-playwright
         playwright install
 
