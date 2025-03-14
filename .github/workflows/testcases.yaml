@@ -34,5 +34,5 @@ jobs:
     - name: Run tests
       run: |
         # Make sure you are in the correct directory to run the tests
-        cd test_cases
+        cd keka_portal_automation/test_cases
         pytest test_Homefunctionality.py  
