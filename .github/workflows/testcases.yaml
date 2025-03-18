@@ -46,3 +46,18 @@ jobs:
         LATEST_ALLURE_VERSION=$(curl -s https://api.github.com/repos/allure-framework/allure2/releases/latest | jq -r .tag_name)
         wget -qO- https://github.com/allure-framework/allure2/releases/download/$LATEST_ALLURE_VERSION/allure-$LATEST_ALLURE_VERSION.tgz | tar xvz -C /tmp
         sudo ln -s /tmp/allure-$LATEST_ALLURE_VERSION/bin/allure /usr/local/bin/allure
+
+    - name: Generate Allure report
+      run: |
+        allure generate allure_results7 --clean -o allure-report
+
+    - name: Deploy Allure report to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_branch: gh-pages
+        publish_dir: allure-report
+        allow_empty_commit: true
+    - name: Output Allure Report URL
+      run: |
+        echo "Allure Report is available at: https://${{ github.repository_owner }}.github.io/Sample"
