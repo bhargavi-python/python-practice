@@ -39,7 +39,7 @@ jobs:
         pip install pytest-playwright
         playwright install
         pip install webdriver-manager
-        pytest test_addfeatures.py --alluredir=allure_results7
+        pytest test_addfeatures.py 
 
     - name: List Allure Results Directory
       run: ls -la allure_results7
